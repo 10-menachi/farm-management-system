@@ -3,11 +3,11 @@ import { NavBar } from "../components/NavBar";
 import { AuthContext } from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Skeleton from "../components/Skeleton";
+import SideBar from "../components/SideBar";
 
 const Dashboard = () => {
   const { user, logOut, loading } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(user);
 
   const handleLogout = () => {
     logOut()
@@ -34,6 +34,7 @@ const Dashboard = () => {
   return (
     <>
       <NavBar logOut={handleLogout} />
+      <SideBar logOut={logOut} />
     </>
   );
 };
