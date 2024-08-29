@@ -1,6 +1,8 @@
 import { Navbar, Typography, Button, Input } from "@material-tailwind/react";
+import AvatarComponent from "./Avatar";
+import PropTypes from "prop-types";
 
-export function NavBar() {
+export function NavBar({ logOut }) {
   return (
     <Navbar
       variant="gradient"
@@ -35,7 +37,14 @@ export function NavBar() {
             Search
           </Button>
         </div>
+        <div className="flex gap-4 mx-6">
+          <AvatarComponent logOut={logOut} />
+        </div>
       </div>
     </Navbar>
   );
 }
+
+NavBar.propTypes = {
+  logOut: PropTypes.func.isRequired,
+};
